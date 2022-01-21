@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage{'listar directorio actual'}{
+            steps {
+                sh 'ls -la'
+            }
+        }
+        stage{'Build de docker'}{
+            steps{
+                sh 'docker build -t web:latest ./deploy/Dockerfile'
+            }
+        }
+    }
+}
